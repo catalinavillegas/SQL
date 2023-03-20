@@ -1,0 +1,36 @@
+--Create a incense store database
+
+CREATE TABLE store (id INTEGER, name TEXT, quantity INTEGER, type TEXT, price INTEGER, popularity INTEGER);
+
+INSERT INTO store VALUES (1, "vanilla", 200, "stick", 1.00, 50);
+INSERT INTO store VALUES (2, "lavander", 150, "cone", 2.00, 23);
+INSERT INTO store VALUES (3, "nag champa", 74, "stick", 5.00, 12);
+INSERT INTO store VALUES (4, "floral", 100, "stick", 3.00, 48);
+INSERT INTO store VALUES (5, "orange spice", 100, "cone", 1.50, 99);
+INSERT INTO store VALUES (6, "lemonbalm", 234, "cone", 1.25, 45);
+INSERT INTO store VALUES (7, "sage", 55, "stick", .99, 3);
+INSERT INTO store VALUES (8, "midnight rose", 145, "stick", 1.25, 29);
+INSERT INTO store VALUES (9, "clove", 45, "stick", .50, 57);
+INSERT INTO store VALUES (10, "tea tree", 80, "stick", 1.00, 83);
+INSERT INTO store VALUES (11, "eucalyptus", 250, "stick", 1.50, 19);
+INSERT INTO store VALUES (12, "sandalwood", 67, "cone", .88, 77);
+INSERT INTO store VALUES (13, "rose", 100, "cone", 2.40, 68);
+INSERT INTO store VALUES (14, "patchouli", 25, "stick", 1.30, 12);
+INSERT INTO store VALUES (15, "wildberry", 140, "stick", 1.00, 47);
+
+--display the database ordered by price. 
+SELECT * FROM store GROUP BY price;
+
+--what are the most 5 popular items? 
+SELECT name, price, popularity FROM store
+order by popularity desc
+limit 5; 
+
+--what is the avg price of incense cones?
+SELECT AVG(price) "avg cone incense price"
+FROM store
+where type='cone'; 
+
+
+
+
